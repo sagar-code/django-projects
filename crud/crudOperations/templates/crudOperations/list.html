@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Info List</title>
+
+    <style>
+        body {
+            font-size: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        tr {
+
+        }
+
+        table, th, td {
+            border: 1px solid forestgreen;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<p>
+    <a href="{% url 'crud:create' %}">Create New User</a>
+</p>
+
+<br>
+<br>
+<h1>List of all Users:</h1>
+
+<table>
+<tr>
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Middle Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Action</th>
+</tr>
+    {% for user_data in data %}
+        <tr>
+            <td>{{ user_data.id }}</td>
+            <td>{{ user_data.first_name }}</td>
+            <td>
+                {% if user_data.middle_name %}
+                    {{ user_data.middle_name }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+            <td>{{ user_data.last_name }}</td>
+            <td>{{ user_data.email }}</td>
+            <td>
+                <a href="{% url 'crud:detail' user_data.id %}">Detail</a> /
+                <a href="{% url 'crud:update' user_data.id %}">Update</a> /
+                <a href="{% url 'crud:delete' user_data.id %}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

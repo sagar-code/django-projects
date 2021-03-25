@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detail of User</title>
+
+    <style>
+        body{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detail of User:</h1>
+First Name: {{ user_object.first_name }}
+<br>
+<br>
+Middle Name:
+    {% if user_object.middle_name %}
+        {{ user_object.middle_name }}
+    {% else %}
+        (middle name not found)
+    {% endif %}
+<br>
+<br>
+Last Name:  {{ user_object.last_name }}
+<br>
+<br>
+Email:  {{ user_object.email }}
+<br>
+<br>
+Date of Birth:  {{ user_object.dob }}
+<br>
+<br>
+BIO:  {{ user_object.bio }}
+<br>
+<br>
+
+    <hr>
+    <a href="/crud/list/">Go Back</a>
+</body>
+</html>
