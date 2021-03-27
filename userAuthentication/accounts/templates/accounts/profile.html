@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+</head>
+<body>
+<h1>PROFILE PAGE:</h1>{{ request.user }}
+<br>
+Click <a href="/accounts/logout">Here</a> to logout.
+<hr>
+Name: {{ request.user.get_full_name }}
+<br>
+Email: {{ request.user.email }}
+<br>
+Username: {{ request.user.get_username }}
+
+</body>
+</html>
